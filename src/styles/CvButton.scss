@@ -1,0 +1,15 @@
+@import './Variables.scss';
+
+.create-cv {
+    color: $background;
+    font-size: 2rem;
+    background-color: $accent;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: .7em 3em;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(.8);
+    }
+}

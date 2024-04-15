@@ -1,0 +1,70 @@
+$animation-duration: 0.5s;
+$animation-delay-increment: 0.5s;
+
+.cv-paper-animation {
+    margin: 100px 100px 0 0;
+    #tick1, #tick2, #tick3, #tick4, #tick5, #tick6, #tick8 {
+        opacity: 0;
+    }
+    #tick8 {
+        animation: LAST_TICK_REVEAL ease 2s forwards;
+        animation-delay: 5.7s;
+    }
+    @for $i from 1 through 7 {
+        $delay: $animation-delay-increment * $i;
+    
+        #tick#{$i} {
+            opacity: 0;
+            animation: FADE_IN #{$animation-duration} ease forwards $delay;
+        }
+    }
+    
+    #cursor {
+        opacity: 1;
+        animation: MOVE_CURSOR 10s ease forwards;
+        animation-delay: 3s;
+    }
+}
+
+@keyframes MOVE_CURSOR {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    20% {
+        transform: translateX(65%) translateY(-55%);
+    }
+    25% {
+        transform: scale(1) translateX(65%) translateY(-55%);
+    }
+    30% {
+        transform: scale(.98) translateX(65%) translateY(-55%);
+    }
+    35% {
+        transform: scale(1) translateX(65%) translateY(-55%);
+    }
+    100% {
+        transform: translateX(65%) translateY(-55%);
+    }
+}
+
+@keyframes FADE_IN {
+    0% {
+        opacity: 0;
+        transform: translateY(-4%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes LAST_TICK_REVEAL {
+    0% {
+        opacity: 0;
+        transform: translateY(-4%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

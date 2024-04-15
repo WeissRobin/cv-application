@@ -1,0 +1,30 @@
+@import '../styles/Variables.scss';
+
+.cv-section-wrapper {
+    width: 90%;
+    margin-inline: auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    .cv-section {
+        position: relative;
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding: 1em 0 .8em 1.5em;
+            border-bottom: 1px solid rgb(209, 209, 209);
+        }
+    }
+    .section-button {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: 5px;
+        font-size: 1.4rem;
+        color: $accent;
+        margin-left: 1.5em;
+        padding-bottom: 1em;
+        cursor: pointer;
+    }
+}

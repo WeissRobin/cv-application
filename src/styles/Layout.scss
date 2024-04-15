@@ -1,0 +1,74 @@
+@import './Variables.scss';
+
+.date {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    position: relative;
+    margin-top: 1em;
+    .date-heading {
+        position: absolute;
+        top: -12px;
+        left: 30px;
+        font-size: 1.1rem;
+        color: $accent;
+    }
+}
+
+.description {
+    grid-area: desc;
+    font-size: 1.4rem;
+    padding: 1em;
+    margin-inline: 1.5em;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+    border: 1px solid rgb(209, 209, 209);
+    resize: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+.roll-btn {
+    grid-area: roll;
+    height: 55px;
+    background-color: white;
+    position: relative;
+    &:hover {
+        background-color: rgba(170, 170, 170, .1);
+    }
+    .heading {
+        font-size: 1.4rem;
+        padding: 1.5em;
+    }
+    .chevron {
+        position: absolute;
+        top: 0;
+        left: 93%;
+        font-size: 1.4rem;
+        color: rgb(170, 170, 170);
+        margin: 1.5em;
+    }
+}
+
+.layout-default {
+    
+    overflow: hidden;
+
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 5px;
+    margin: 1.5em;
+
+    transition: height .4s ease-in-out;
+}
+
+.delete-btn {
+    position: absolute;
+    left: 90%;
+    font-size: 1.6rem;
+    color: rgb(170, 170, 170);
+    margin-top: 20px;
+    cursor: pointer;
+    &:hover {
+        color: $accent;
+    }
+}

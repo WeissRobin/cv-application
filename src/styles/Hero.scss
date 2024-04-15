@@ -1,0 +1,48 @@
+@import './Variables.scss';
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    .hero-main {
+        .hero-description {
+            font-size: 2.1rem;
+            color: rgb(129, 129, 129);
+        }
+        h1 {
+            font-size: 6rem;
+        }
+        p {
+            font-size: 2rem;
+            width: 70ch;
+        }
+        .cv-count {
+            font-size: 1.5rem;
+            color: rgb(129, 129, 129);
+            margin-top: 10px;
+            .live-green {
+                float: left;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background-color: rgb(58, 201, 58);
+                margin-top: 7px;
+                margin-right: .5em;
+                animation: blick 4s infinite;
+            }
+        }
+    }
+}
+
+@keyframes blick {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

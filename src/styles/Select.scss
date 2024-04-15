@@ -1,0 +1,62 @@
+@import '../styles/Variables.scss';
+
+.form-input-select {
+    position: relative;
+    padding: 1.5em 3em;
+    label {
+        position: absolute;
+        font-size: 1.4rem;
+        color: rgb(170, 170, 170);
+        transition: all .3s ease;
+    }
+    input {
+        position: relative;
+        z-index: 1;
+        text-align: left;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgb(170, 170, 170);
+        cursor: pointer;
+        &:focus {
+            color: $accent;
+            outline: none;
+            border-bottom: 1px solid $accent;
+        }
+    }
+    .focused {
+        font-size: 1.1rem;
+        color: $accent !important;
+        transform: translateY(-15px);
+    }
+    .set {
+        font-size: 1.1rem;
+        transform: translateY(-15px);
+        color: rgb(170, 170, 170);
+    }
+    .context-menu-btn {
+        position: absolute;
+        transform: translate(-10px, 5px);
+        font-size: 1.2rem;
+        color: rgb(170, 170, 170);
+    }
+    .context-menu {
+        max-height: 200px;
+        overflow-y: scroll;
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        width: 75%;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 5px;
+        .context-item {
+            font-size: 1.3rem;
+            padding: 1em .5em;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(170, 170, 170, .1);
+            }
+        }
+    }
+}

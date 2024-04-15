@@ -1,0 +1,34 @@
+@import '../styles/Variables.scss';
+
+.form-input {
+    position: relative;
+    padding: 1.5em 3em;
+    label {
+        position: absolute;
+        font-size: 1.4rem;
+        color: rgb(170, 170, 170);
+        transition: all .3s ease;
+    }
+    input {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgb(170, 170, 170);
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid $accent;
+        }
+    }
+    .focused {
+        font-size: 1.1rem;
+        color: $accent !important;
+        transform: translateY(-15px);
+    }
+    .set {
+        font-size: 1.1rem;
+        transform: translateY(-15px);
+        color: rgb(170, 170, 170);
+    }
+}

@@ -1,0 +1,21 @@
+@import './Variables.scss';
+
+.education-item {
+    display: grid;
+    grid-template-areas:
+    'roll roll' 
+    'title school'
+    'class class'
+    'date-begin date-end'
+    'desc desc';
+
+    height: 55px;
+
+    &.detailed {
+        height: 450px;
+    }
+
+    .form-input:nth-child(4) {
+        grid-area: class;
+    }
+}

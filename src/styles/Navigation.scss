@@ -1,0 +1,80 @@
+@import './Variables.scss';
+
+.navigation-wrapper {
+    display: flex;
+    align-items: center;
+    .logo {
+        width: 90px;
+    }
+    .navigation {
+        flex: 1;
+        .links-list {
+            display: flex;
+            gap: 40px;
+            margin-left: 40px;
+            .link {
+                color: $text;
+                font-size: 1.5rem;
+                text-decoration: none;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 2px;
+                    width: 0%;
+                    background-color: $accent;
+                    transition: width .25s ease-out;
+                }
+                &:hover::after{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .login {
+        font-size: 1.6rem;
+        background-color: transparent;
+        color: $accent;
+        border: none;
+        margin-right: 40px;
+        cursor: pointer;
+    }
+    .sign-up {
+        font-size: 1.6rem;
+        color: $accent;
+        background-color: transparent;
+        border: 1px solid $accent;
+        border-radius: 5px;
+        padding-inline: 1em;
+        padding-block: .5em;
+        margin-right: 40px;
+        position: relative;
+        transition: all .25s ease-out;
+        cursor: pointer;
+
+        span {
+            position: relative;
+            z-index: 1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            height: 100%;
+            width: 0%;
+            background-color: $accent;
+            transition: width .25s ease-out;
+        }
+        &:hover {
+            color: $background;
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

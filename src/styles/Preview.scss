@@ -1,0 +1,49 @@
+.preview-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-color: grey;
+    position: relative;
+    z-index: -1;
+    .paper {
+        display: grid;
+        grid-template-areas: 
+        'side main';
+
+        grid-template-columns: 35% 65%;
+
+        width: 580px;
+        height: 822px;
+        background-color: white;
+        border-radius: 5px;
+
+        .side-panel {
+            grid-area: side;
+            background-color: #7B0323;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            padding: 5em 2em;
+            border-radius: 5px 0 0 5px;
+            .aside-section-heading {
+                font-size: 1.7rem;
+                font-weight: 500;
+            }
+            .personal-info {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .main-content {
+            grid-area: main;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: black;
+            padding: 3em 2em;
+            .name {
+                font-size: 3rem;
+            }
+        }
+    }
+}

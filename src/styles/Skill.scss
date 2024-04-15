@@ -1,0 +1,18 @@
+@import './Variables.scss';
+
+.skill-item {
+    display: grid;
+    grid-template-columns: 48% 48% 4%;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 5px;
+    margin: 1.5em;
+    .delete-btn {
+        font-size: 1.6rem;
+        color: rgb(170, 170, 170);
+        margin-left: 20px;
+        cursor: pointer;
+        &:hover {
+            color: $accent;
+        }
+    }
+}

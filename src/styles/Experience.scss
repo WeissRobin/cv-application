@@ -1,0 +1,17 @@
+@import './Variables.scss';
+
+.experience-item {
+    display: grid;
+    grid-template-areas:
+    'roll roll' 
+    'name company'
+    'job type'
+    'date-begin date-end'
+    'desc desc';
+
+    height: 55px;
+
+    &.detailed {
+        height: 450px;
+    }
+}

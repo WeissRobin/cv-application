@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Input from "./Input"
 import Select from "./Select"
@@ -7,24 +7,28 @@ import '../styles/Skill.scss';
 
 const selectValues = ['Expert', 'Intermediate', 'Beginner'];
 
-const Skill = ({ updateSkillsData }) => {
+const Skill = ({ sendSkills }) => {
     const [isDeleted, setIsDeleted] = useState(false);
     const [skillName, setSkillName] = useState('');
     const [skillLevel, setSkillLevel] = useState('');
 
     const getLevel = (level) => {
         setSkillLevel(level);
-        updateSkillsData(skillName, level);
+        sendSkills();
     }
     
     const handleNameChange = (name) => {
         setSkillName(name);
-        updateSkillsData(name, skillLevel);
+        sendSkills();
     }
 
     const handleDelete = () => {
         setIsDeleted(true);
     }
+
+    useEffect(() => {
+        sendSkills();
+    });
 
     if (isDeleted) {
         return null;

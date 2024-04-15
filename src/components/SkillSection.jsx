@@ -6,25 +6,23 @@ import '../styles/FormSection.scss'
 import '../styles/SkillSection.scss'
 import Skill from './Skill'
 
-const SkillSection = ({ name, className, sendSkillsData }) => {
+const SkillSection = ({ name, className, sendSkills }) => {
     const [skillList, setSkillList] = useState([]);
-    const [skillsData, setSkillsData] = useState([]);
 
-    const handleSkillsData = (name, level) => {
-        setSkillsData(prevData => [
-            ...prevData,
-            { name: name, level: level }
-        ]);
-        console.log(skillsData);
-    }    
-
-    const addSkill = () => {
-        setSkillList(skillList.concat(<Skill updateSkillsData={handleSkillsData} key={uuidv4()} />));
+    const handleSkillsData = () => {
+        let skillsArr = [];
+        const allSkills = document.querySelectorAll('.skill-item');
+        allSkills.forEach(skill => {
+            const name = skill.getAttribute('name');
+            const level = skill.getAttribute('level');
+            skillsArr.push({name, level});
+        });
+        sendSkills(skillsArr);
     }
 
-    useEffect(() => {
-        sendSkillsData(skillsData);
-    }, [skillsData]);
+    const addSkill = () => {
+        setSkillList(skillList.concat(<Skill sendSkills={handleSkillsData} key={uuidv4()} />));
+    }
 
     return (
         <div className='cv-section-wrapper'>

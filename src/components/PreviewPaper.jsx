@@ -1,8 +1,12 @@
+import React from 'react';
+
 import '../styles/Preview.scss'
 import { PersonalItem } from './Preview/PersonalItem';
+import { SkillItem } from './Preview/SkillItem';
 
 const PreviewPaper = ({ personalData, skillsData }) => {
     const { personal_name, personal_lastName, personal_email, personal_phone, personal_city, personal_state, personal_adress, personal_birth } = personalData;
+    
     const fullAdress = `${personal_city ? personal_adress + ', ' : personal_adress}${personal_state ? personal_city + ', ' : personal_city}${personal_state}`;
 
     return (
@@ -15,6 +19,12 @@ const PreviewPaper = ({ personalData, skillsData }) => {
                         <PersonalItem label='Phone' value={personal_phone}/>
                         <PersonalItem label='Email' value={personal_email}/>
                         <PersonalItem label='Date of birth' value={personal_birth}/>
+                    </div>
+                    <div className='skills-info'>
+                        {skillsData.map(skill => {
+                            const {name, level} = skill;
+                            return <SkillItem name={name} level={level}/>
+                        })}
                     </div>
                 </aside>
                 <main className='main-content'>

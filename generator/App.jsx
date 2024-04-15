@@ -7,20 +7,20 @@ import Form from '../src/components/Form';
 
 function App() {
   const [personalData, setPersonalData] = useState({});
-  const [skillsData, setSkillsData] = useState([]);
+  const [skills, setSkills] = useState([]);
 
   const handlePersonalData = (data) => {
       setPersonalData(data);
   }
 
   const handleSkillsData = (data) => {
-      setSkillsData(data);
+      setSkills(data);
   }
 
   return (
     <div className='generator-content'>
-      <Form sendPersonalData={handlePersonalData} sendSkillsData={handleSkillsData}/>
-      <PreviewPaper personalData={personalData} skillsData={skillsData}/>
+      <Form sendPersonalData={handlePersonalData} sendSkills={handleSkillsData}/>
+      <PreviewPaper personalData={personalData} skillsData={skills}/>
     </div>
   )
 }

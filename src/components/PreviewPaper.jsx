@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { v4 as uuidv4 } from 'uuid'
+
 import '../styles/Preview.scss'
 import { PersonalItem } from './Preview/PersonalItem';
 import { SkillItem } from './Preview/SkillItem';
@@ -21,9 +23,10 @@ const PreviewPaper = ({ personalData, skillsData }) => {
                         <PersonalItem label='Date of birth' value={personal_birth}/>
                     </div>
                     <div className='skills-info'>
+                    <h2 className='aside-section-heading'>Skills</h2>
                         {skillsData.map(skill => {
                             const {name, level} = skill;
-                            return <SkillItem name={name} level={level}/>
+                            return <SkillItem key={uuidv4()} name={name} level={level}/>
                         })}
                     </div>
                 </aside>

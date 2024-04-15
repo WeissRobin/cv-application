@@ -5,7 +5,7 @@ import Select from "./Select"
 
 import '../styles/Skill.scss';
 
-const selectValues = ['Expert', 'Intermediate', 'Beginner'];
+const selectValues = ['Expert', 'Experienced', 'Beginner', 'None'];
 
 const Skill = ({ sendSkills }) => {
     const [isDeleted, setIsDeleted] = useState(false);

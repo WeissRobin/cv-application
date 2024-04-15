@@ -1,4 +1,4 @@
-import '../../styles/PersonalItem.scss'
+import '../../styles/Preview/PersonalItem.scss'
 
 export const PersonalItem = ({ label, value }) => {
     return (

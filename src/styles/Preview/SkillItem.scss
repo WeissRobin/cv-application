@@ -1,0 +1,33 @@
+@import '../../styles/Variables.scss';
+
+.preview-skill-item {
+    .skill-name {
+        font-size: 1.2rem;
+    }
+    .skill-progress-wrapper {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        background-color: rgb(170, 170, 170);
+        .skill-progress {
+            position: absolute;
+            background-color: white;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: white;
+            &[level='None'] {
+                width: 0%;
+            }
+            &[level='Beginner'] {
+                width: 30%;
+            }
+            &[level='Experienced'] {
+                width: 75%;
+            }
+            &[level='Expert'] {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import Input from "./Input"
 import Select from "./Select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import '../styles/Education.scss'
 import '../styles/Layout.scss'
@@ -16,12 +16,35 @@ for (let year = startYear; year >= endYear; year--) {
     yearValues.push(year);
 }
 
-const Education = () => {
+const Education = ({ sendEducation }) => {
     const [isDetailed, setIsDetailed] = useState(true);
-    const [titleValue, setTitleValue] = useState('');
-    const [schoolValue, setSchoolValue] = useState('');
-    const [classValue, setClassValue] = useState('');
+
+    const [title, setTitle] = useState('');
+    const [school, setSchool] = useState('');
+    const [grade, setGrade] = useState('');
+    const [beginMonth, setBeginMonth] = useState('');
+    const [beginYear, setBeginYear] = useState('');
+    const [endMonth, setEndMonth] = useState('');
+    const [endYear, setEndYear] = useState('');
+    const [desc, setDesc] = useState('');
+
     const [isDeleted, setIsDeleted] = useState(false);
+
+    const getBeginMonth = (date) => {
+        setBeginMonth(date);
+    }
+
+    const getBeginYear = (date) => {
+        setBeginYear(date);
+    }
+
+    const getEndMonth = (date) => {
+        setEndMonth(date);
+    }
+
+    const getEndYear = (date) => {
+        setEndYear(date);
+    }
 
     const handleDelete = () => {
         setIsDeleted(true);
@@ -35,38 +58,47 @@ const Education = () => {
         setIsDetailed(!isDetailed);
     }
 
-    const handleTitleChange = (value) => {
-        setTitleValue(value)
+    const updateEducationInputs = (attr, data) => {
+        const setters = {
+            'education-title': setTitle,
+            'education-school': setSchool,
+            'education-grade': setGrade,
+        };
+        const setter = setters[attr];
+        if (setter) {
+            setter(data);
+        } else {
+            Error('Unknown input');
+        }
     }
 
-    const handleSchoolChange = (value) => {
-        setSchoolValue(value)
-    }
-
-    const handleClassChange = (value) => {
-        setClassValue(value)
-    }
+    useEffect(() => {
+        sendEducation();
+    });
 
     return(
-        <div className={`education-item layout-default ${isDetailed ? 'detailed' : ''}`}>
+        <div title={title} school={school} grade={grade} beginmonth={beginMonth} beginyear={beginYear} endmonth={endMonth} endyear={endYear} desc={desc} className={`education-item layout-default ${isDetailed ? 'detailed' : ''}`}>
             <div className='roll-btn' onClick={handleDetailed}>
-                <div className='heading poppins-semibold'>{schoolValue ? titleValue + ',' : titleValue} {classValue ? schoolValue + ',' : schoolValue} {classValue}</div>
+                <div className='heading poppins-semibold'>{school ? title + ',' : title} {grade ? school + ',' : school} {grade}</div>
                 <i className={`chevron fa-solid fa-angle-${isDetailed ? 'up' : 'down'}`}></i>
             </div>
-            <Input forAttr='title' label='Title' onTitleChange={handleTitleChange}/>
-            <Input forAttr='school' label='School' onSchoolChange={handleSchoolChange}/>
-            <Input forAttr='clasification' label='Clasification' onClassChange={handleClassChange}/>
+            <Input forAttr='education-title' label='Title' updateEducationInputs={updateEducationInputs}/>
+            <Input forAttr='education-school' label='School' updateEducationInputs={updateEducationInputs}/>
+            <Input forAttr='education-grade' label='Grade' updateEducationInputs={updateEducationInputs}/>
             <div className='date poppins-regular'>
                 <span className='date-heading'>Begin Date</span>
-                <Select forAttr='begin-month' label='Month' values={monthsValues}></Select>
-                <Select forAttr='begin-year' label='Year' values={yearValues}></Select>
+                <Select getValue={getBeginMonth} forAttr='begin-month' label='Month' values={monthsValues}></Select>
+                <Select getValue={getBeginYear} forAttr='begin-year' label='Year' values={yearValues}></Select>
             </div>
             <div className='date poppins-regular'>
                 <span className='date-heading'>End Date</span>
-                <Select forAttr='end-month' label='Month' values={monthsValues}></Select>
-                <Select forAttr='end-year' label='Year' values={yearValues}></Select>
+                <Select getValue={getEndMonth} forAttr='end-month' label='Month' values={monthsValues}></Select>
+                <Select getValue={getEndYear} forAttr='end-year' label='Year' values={yearValues}></Select>
             </div>
-            <textarea className='description poppins-regular' cols="20" rows="8"></textarea>
+            <div contentEditable='true' onInput={ (e) => {
+                let formattedText = e.target.innerHTML.replace(/<div>/g,"\n").replace(/<\/div>/g,"").replace(/<br>/g,"\n").replace(/&nbsp;/g, " ");
+                setDesc(formattedText);
+            } } className='description poppins-regular'></div>
             <i className="fa-solid fa-trash-can delete-btn" onClick={handleDelete}></i>
         </div>
     )

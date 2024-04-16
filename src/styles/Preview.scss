@@ -1,4 +1,7 @@
+@import '../styles/Variables.scss';
+
 .preview-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,7 +9,23 @@
     height: 100%;
     background-color: grey;
     position: relative;
-    z-index: -1;
+
+    .download {
+        position: absolute;
+        z-index: 5;
+        background-color: $accent;
+        color: white;
+        padding: .5em 1em;
+        border-radius: 5px;
+        border: none;
+        top: 20px;
+        transform: translateX(235px);
+        cursor: pointer;
+        &:hover {
+            filter: brightness(.9);
+        }
+    }
+
     .paper {
         display: grid;
         grid-template-areas: 
@@ -17,7 +36,6 @@
         width: 580px;
         height: 822px;
         background-color: white;
-        border-radius: 5px;
 
         .side-panel {
             grid-area: side;
@@ -28,7 +46,6 @@
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
             padding: 5em 2em;
-            border-radius: 5px 0 0 5px;
             .aside-section-heading {
                 font-size: 1.7rem;
                 font-weight: 500;
@@ -48,9 +65,17 @@
             grid-area: main;
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: black;
-            padding: 3em 2em;
+            
             .name {
                 font-size: 3rem;
+                padding: 30px 20px;
+            }
+            .main-section-heading {
+                background-color: #5c2a3a;
+                color: white;
+                font-size: 1.4rem;
+                font-weight: 500;
+                padding: .2em 23px;
             }
         }
     }

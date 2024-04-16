@@ -22,7 +22,10 @@
     margin-bottom: 1.5em;
     border-radius: 5px;
     border: 1px solid rgb(209, 209, 209);
-    resize: none;
+    min-height: 170px;
+    max-width: 100%;
+    scrollbar-width: none;
+    overflow-y: scroll;
     &:focus {
         outline: none;
     }

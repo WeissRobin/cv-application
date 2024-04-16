@@ -10,9 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "print": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
+    "react-to-print": "^2.15.1",
+    "to": "^0.2.9",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

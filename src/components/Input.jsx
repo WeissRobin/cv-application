@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import '../styles/Input.scss';
 
-const Input = ({ forAttr, label, updatePersonalData, updateSkill }) => {
+const Input = ({ forAttr, label, updatePersonalData, updateSkill, updateExperienceInputs, updateEducationInputs }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -21,6 +21,10 @@ const Input = ({ forAttr, label, updatePersonalData, updateSkill }) => {
                     updatePersonalData(forAttr, e.target.value);
                 } else if (forAttr.startsWith('skill')) {
                     updateSkill(e.target.value);
+                } else if (forAttr.startsWith('experience')) {
+                    updateExperienceInputs(forAttr, e.target.value);
+                } else if (forAttr.startsWith('education')) {
+                    updateEducationInputs(forAttr, e.target.value);
                 }
                 setInputValue(e.target.value);
                 }} onFocus={handleFocus} onBlur={handleBlur} className='poppins-regular input-field' id={forAttr} type="text" />

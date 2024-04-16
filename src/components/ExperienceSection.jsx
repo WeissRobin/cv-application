@@ -6,11 +6,29 @@ import '../styles/ExperienceSection.scss'
 import '../styles/FormSection.scss'
 import Experience from './Experience'
 
-const ExperienceSection = ({name, className}) => {
+const ExperienceSection = ({ name, className, sendExperiences }) => {
     const [experienceList, setExperienceList] = useState([]);
 
+    const handleExperienceData = () => {
+        let experienceArr = [];
+        const allExperiences = document.querySelectorAll('.experience-item');
+        allExperiences.forEach(exp => {
+            const name = exp.getAttribute('name');
+            const company = exp.getAttribute('company');
+            const location = exp.getAttribute('location');
+            const contract = exp.getAttribute('contract');
+            const beginmonth = exp.getAttribute('beginmonth');
+            const beginyear = exp.getAttribute('beginyear');
+            const endmonth = exp.getAttribute('endmonth');
+            const endyear = exp.getAttribute('endyear');
+            const desc = exp.getAttribute('desc');
+            experienceArr.push({ name, company, location, contract, beginmonth, beginyear, endmonth, endyear, desc });
+        });
+        sendExperiences(experienceArr);
+    }
+
     const addExperience = () => {
-        setExperienceList(experienceList.concat(<Experience key={uuidv4()}/>));
+        setExperienceList(experienceList.concat(<Experience sendExperiences={handleExperienceData} key={uuidv4()}/>));
     }
 
     return (

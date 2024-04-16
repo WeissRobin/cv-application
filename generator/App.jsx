@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import './Reset.scss';
 
@@ -8,6 +8,12 @@ import Form from '../src/components/Form';
 function App() {
   const [personalData, setPersonalData] = useState({});
   const [skills, setSkills] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+
+  const handleExperiencesData = (data) => {
+      setExperiences(data);
+  }
 
   const handlePersonalData = (data) => {
       setPersonalData(data);
@@ -17,10 +23,14 @@ function App() {
       setSkills(data);
   }
 
+  const handleEducationsData = (data) => {
+      setEducations(data);
+  }
+
   return (
     <div className='generator-content'>
-      <Form sendPersonalData={handlePersonalData} sendSkills={handleSkillsData}/>
-      <PreviewPaper personalData={personalData} skillsData={skills}/>
+      <Form sendPersonalData={handlePersonalData} sendSkills={handleSkillsData} sendExperiences={handleExperiencesData} sendEducations={handleEducationsData}/>
+      <PreviewPaper personalData={personalData} skillsData={skills} experiencesData={experiences} educationsData={educations}/>
     </div>
   )
 }

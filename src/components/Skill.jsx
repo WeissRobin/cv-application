@@ -14,12 +14,10 @@ const Skill = ({ sendSkills }) => {
 
     const getLevel = (level) => {
         setSkillLevel(level);
-        sendSkills();
     }
     
     const handleNameChange = (name) => {
         setSkillName(name);
-        sendSkills();
     }
 
     const handleDelete = () => {

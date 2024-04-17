@@ -3,7 +3,7 @@
 .hero-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 80vh;
     .hero-main {
         .hero-description {
@@ -34,9 +34,18 @@
         }
     }
     .hero-image {
+        display: flex;
+        justify-content: flex-start;
          img {
-            transform: scale(.9);
+            transform: scale(.8) translateY(800px);
+            animation: out 2s ease forwards;
          }
+    }
+}
+
+@keyframes out {
+    to {
+        transform: scale(.8) translateY(0px);
     }
 }
 

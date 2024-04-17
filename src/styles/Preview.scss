@@ -77,6 +77,15 @@
                 font-weight: 500;
                 padding: .2em 23px;
             }
+
+            .profile-wrapper {
+                white-space: pre-line;
+                font-size: 1.1rem;
+                padding-block: 5px;
+                padding-inline: 23px;
+                width: 100%;
+                text-align: justify;
+            }
         }
     }
 }

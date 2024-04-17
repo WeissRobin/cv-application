@@ -10,6 +10,7 @@ function App() {
   const [skills, setSkills] = useState([]);
   const [educations, setEducations] = useState([]);
   const [experiences, setExperiences] = useState([]);
+  const [profile, setProfile] = useState('');
 
   const handleExperiencesData = (data) => {
       setExperiences(data);
@@ -27,10 +28,14 @@ function App() {
       setEducations(data);
   }
 
+  const handleProfileData = (data) => {
+      setProfile(data);
+  }
+
   return (
     <div className='generator-content'>
-      <Form sendPersonalData={handlePersonalData} sendSkills={handleSkillsData} sendExperiences={handleExperiencesData} sendEducations={handleEducationsData}/>
-      <PreviewPaper personalData={personalData} skillsData={skills} experiencesData={experiences} educationsData={educations}/>
+      <Form sendPersonalData={handlePersonalData} sendSkills={handleSkillsData} sendExperiences={handleExperiencesData} sendEducations={handleEducationsData} sendProfile={handleProfileData}/>
+      <PreviewPaper personalData={personalData} skillsData={skills} experiencesData={experiences} educationsData={educations} profileData={profile} />
     </div>
   )
 }

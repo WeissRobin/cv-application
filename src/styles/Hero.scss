@@ -33,6 +33,11 @@
             }
         }
     }
+    .hero-image {
+         img {
+            transform: scale(.9);
+         }
+    }
 }
 
 @keyframes blick {

@@ -1,7 +1,8 @@
 import '../styles/Hero.scss';
 
 import CvButton from './CvButton';
-import CvPaperAnimation from './CvPaperAnimation'
+
+import ExampleCV from '../assets/example-cv.gif';
 
 const Hero = () => {
     return (
@@ -14,7 +15,7 @@ const Hero = () => {
                 <div className='cv-count poppins-regular'><div className='live-green'></div>Today we have created 4784 cvs</div>
             </div>
             <div className='hero-image'>
-                <CvPaperAnimation />
+                <img src={ExampleCV} alt="Example CV" />
             </div>
         </div>
     )

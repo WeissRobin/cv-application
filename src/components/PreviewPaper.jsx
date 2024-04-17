@@ -11,7 +11,7 @@ import { SkillItem } from './Preview/SkillItem';
 import { ExperienceItem } from './Preview/ExperienceItem';
 import { EducationItem } from './Preview/EducationItem';
 
-const PreviewPaper = ({ personalData, skillsData, experiencesData, educationsData }) => {
+const PreviewPaper = ({ personalData, skillsData, experiencesData, educationsData, profileData }) => {
     //get data from components
     const { 
         personal_name, 
@@ -64,6 +64,12 @@ const PreviewPaper = ({ personalData, skillsData, experiencesData, educationsDat
                 </aside>
                 <main className='main-content'>
                     <div className='name'>{personal_name} {personal_lastName}</div>
+                    <div className='profile-info'>
+                        <h2 className='main-section-heading'>Profile</h2>
+                        <div className='profile-wrapper'>
+                            {profileData}
+                        </div>
+                    </div>
                     <div className='experiences-info'>
                         <div className='main-section-heading'>Experience</div>
                         {experiencesData.map(exp => {
